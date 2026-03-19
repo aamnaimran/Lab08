@@ -25,9 +25,28 @@ public class CustomListTest {
     @Test
     void testDelete() {
         CustomList list = new CustomList();
-        City city = list.getCities().get(0);
-        list.delete(city); // test removal
-        assertFalse(list.hasCity(city));
+        City city = new City("Yellowknife", "NT");
+
+        //addition so list isn't empty
+        list.addCity(city);
+        assertTrue(list.hasCity(city), "City should be in the list before deletion");
+
+        //deletion
+        list.delete(city);
+
+        //verify it's gone
+        assertFalse(list.hasCity(city), "City should not be in the list after deletion");
+    }
+
+    @Test
+    void testDeleteException() {
+        CustomList list = new CustomList();
+        City city = new City("Regina", "SK");
+
+        //verify that deleting a city not in the list throws the exception
+        assertThrows(IllegalArgumentException.class, () -> {
+            list.delete(city);
+        });
     }
 
 
