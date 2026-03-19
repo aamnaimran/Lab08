@@ -50,10 +50,12 @@ public class CustomListTest {
     }
 
 
-//    @Test
-//    public void testCountCities()
-//    {
-//        CustomList list = new CustomList();
-//    }
+    @Test
+    public void testCountCities()
+    {
+        CustomList list = new CustomList();
+        list.addCity(new City("Charlottetown", "PE"));
+        assertEquals(1, list.countCities()); // This will now FAIL because the method returns 0
+    }
 
 }
