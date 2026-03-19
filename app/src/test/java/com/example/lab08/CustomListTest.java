@@ -22,6 +22,14 @@ public class CustomListTest {
         assertTrue(list.hasCity(edmontonDuplicate));
     }
 
+    @Test
+    void testDelete() {
+        CustomList list = new CustomList();
+        City city = list.getCities().get(0);
+        list.delete(city); // test removal
+        assertFalse(list.hasCity(city));
+    }
+
 
 //    @Test
 //    public void testCountCities()

@@ -1,6 +1,6 @@
 package com.example.lab08;
 
-public class City {
+public class City implements Comparable<City> {
     private String city;
     private String province;
 
@@ -15,6 +15,11 @@ public class City {
 
     public String getProvinceName(){
         return this.province;
+    }
+
+    @Override
+    public int compareTo(City city) {
+        return this.city.compareTo(city.getCityName());
     }
 
     // To make "contains" work properly in tests
